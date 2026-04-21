@@ -1,4 +1,4 @@
-getgenv().Config = {
+ getgenv().Config = {
         BabyFarm = false, -- Does baby farm
             PetFarm = {
             Enabled = true, -- Enables the Pet Farm
@@ -7,14 +7,10 @@ getgenv().Config = {
             EggTypes = {}, -- Which eggs to equip ({} = any egg, or {"cracked_egg", "royal_egg"} for specific)
             BuyEggType = "any", -- Which egg to buy when BuyEggs is true ("any" or specific egg ID)
             MaxPets = 1, -- How many pets to equip at once (1 = free, 2 = requires Robux gamepass)
-            FarmUntilFullGrown = false, -- If true, selects pets that aren't full grown first
-            PrioritizeFriendship = true, -- If true, selects pets with higher friendship level first
-            SelectiveFarm = false, -- If true, only farm pets in SelectedPetTypes list
-            SelectedPetTypes = {}, -- Pet IDs to farm when SelectiveFarm is true (e.g., {"dog", "cat"})
-        },
-        EventFarm = {
-            CandyCliff = false, -- Automatically complete Candy Cliff event tasks and buys a chissle
-            MochiNail = false, -- Automatically complete Mochi Nail event and buys the tool needed
+            FarmUntilFullGrown = true, -- If true, selects pets that aren't full grown first
+            PrioritizeFriendship = false, -- If true, selects pets with higher friendship level first
+            SelectiveFarm = true, -- If true, only farm pets in SelectedPetTypes list
+            SelectedPetTypes = {"sugarfest_2026_mochi_meow", "sugarfest_2026_waffle_wyrm", "sugarfest_2026_gumball_caterpillar"}, -- Pet IDs to farm when SelectiveFarm is true (e.g., {"dog", "cat"})
         },
         AutoNeon = {
             Enabled = true, -- Enable auto neon/mega fusion
@@ -27,7 +23,8 @@ getgenv().Config = {
             ShowOverlay = true, -- Show stats overlay (disables 3D rendering)
             ReduceGraphics = true, -- Reduce graphics quality to minimum
             FPSCap = 60, -- FPS cap option (0 = uncapped)
-            LureId = "ice_dimension_2025_ice_soup_bait" -- what lure to use for example: "ice_dimension_2025_ice_soup_bait"
+            LureId = "ice_dimension_2025_ice_soup_bait", -- what lure to use for example: "ice_dimension_2025_ice_soup_bait"
+            TradeInvites = "Everyone", -- "Everyone" or "Friends"
         },
         AutoBuy = {
             Enabled = false, -- Automatically buy items from shops
@@ -38,9 +35,10 @@ getgenv().Config = {
             Enabled = false, -- Open gift boxes automatically
             Items = {}, -- Item IDs to auto open (e.g., {"winter_2025_angus_box"})
         },
-        AutoPotion = {
-            Enabled = false, -- Use age potions on pets to level them up
-            SelectedPets = {}, -- Pet IDs to use potions on (empty = does nothing)
+       AutoPotion = {
+            Enabled = true, -- Use age potions on pets to level them up
+            SelectedPets = {"sugarfest_2026_mochi_meow", "sugarfest_2026_waffle_wyrm", "sugarfest_2026_gumball_caterpillar"}, -- Pet IDs to use potions on (empty = does nothing)
+            PotionVersionFilter = {}, -- Per-pet version filter e.g. {dog = {"neon"}, cat = {"regular", "neon"}} - empty = all versions
         },
         AutoRecycle = {
             Enabled = false, -- Toggle auto recycling on/off
@@ -59,11 +57,12 @@ getgenv().Config = {
             AgeFilter = {}, -- Empty = all ages, or specific ages e.g. {1, 2, 3, 4, 5, 6} (1=Newborn, 6=Full Grown)
             ExcludedPets = {}, -- Pet IDs to never recycle e.g. {"dog", "cat", "shadow_dragon"}
         },
-        IdleProgression = {
-            Enabled = true, -- Put pets in pet pen for idle leveling
-            SelectedPets = {"egg_teaser_2026_dire_wolf"}, -- Pet IDs to put in pet pen (empty = use all)
+       IdleProgression = {
+            Enabled = false, -- Put pets in pet pen for idle leveling
+            SelectedPets = {"cracked_egg"}, -- Pet IDs to put in pet pen (empty = use all)
             ExcludedPets = {}, -- Pet IDs to never put in pet pen
-            PriorityOrder = {"neon"}, -- Order: first = highest priority for pen slots (e.g. {"neon", "regular", "mega"})
+            PriorityOrder = {}, -- Order: first = highest priority for pen slots (e.g. {"neon", "regular", "mega"})
+            PenVersionFilter = {}, -- Per-pet version filter e.g. {dog = {"neon"}, cat = {"regular"}} - empty = all versions
         },
         Webhook = {
             Enabled = false, -- Send webhook notifications to Discord
